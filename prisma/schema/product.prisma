@@ -1,0 +1,36 @@
+
+model ProcessingRequest {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())   
+  finishedAt  DateTime?                    
+  status      Status   @default(PENDING)    
+  webhookUrl  String?                        
+  products    Product[]                    
+}
+
+model Product {
+  id          String   @id @default(uuid())  
+  requestId   String
+  name        String
+  serialNo    Int           
+  request     ProcessingRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  images      Image[]          
+}
+
+model Image {
+  id          String   @id @default(uuid())  
+  productId   String
+  product     Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  inputUrl    String          
+  outputUrl   String?         
+  status      Status   @default(PENDING)  
+  order       Int              
+  createdAt   DateTime @default(now())
+}
+
+enum Status {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
