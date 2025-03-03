@@ -3,7 +3,9 @@ import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { AuthCommon } from "../common/auth";
 import { z } from "zod";
 import { bufferToJson } from "@shared/utils/bufferToJson";
-import { TCSVRow, ZCSVRow } from "@app/models/product";
+import { TCSVRow, ZCSVRow, ZStatus } from "@app/models/product";
+import { logger } from "@shared/logger";
+import { ValidationError } from "@shared/error/ValidationError";
 
 const productRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
   fastify.withTypeProvider<ZodTypeProvider>().route({
@@ -14,21 +16,23 @@ const productRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
         file: z.any(),
       }),
       response: {
-        200: z.any(),
+        200: z.object({
+          requestId: z.string(),
+        }),
       },
     },
     ...AuthCommon.RouteOptions,
     handler: async function (request, reply) {
-      const { file } = request.body; 
+      const { file } = request.body;
       if (!file || file.length === 0) {
-        return reply.status(400).send({ error: "CSV file is required." });
+        throw new ValidationError("Csv file required!");
       }
 
       let jsonData;
       try {
-        jsonData = await bufferToJson(file); 
+        jsonData = await bufferToJson(file);
       } catch (error) {
-        return reply.status(400).send({ error: "Invalid CSV format." });
+        throw new ValidationError("Invalid CSV format!");
       }
 
       const requiredHeaders = ["S. No.", "Product Name", "Input Image Urls"];
@@ -37,11 +41,11 @@ const productRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
         (header) => !fileHeaders.includes(header)
       );
       if (missingHeaders.length > 0) {
-        return reply
-          .status(400)
-          .send({ error: `Missing headers: ${missingHeaders.join(", ")}` });
+        throw new ValidationError(
+          `Missing headers: ${missingHeaders.join(", ")}`
+        );
       }
-      let parsedRows:TCSVRow[];
+      let parsedRows: TCSVRow[];
       try {
         parsedRows = jsonData.map((row) =>
           ZCSVRow.parse({
@@ -51,11 +55,36 @@ const productRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
           })
         );
       } catch (error) {
-        return reply.status(400).send({ error: error.errors });
+        throw new ValidationError(`${error.error}`);
       }
 
-      const updateRes = await fastify.services.uploadProduct.execute(parsedRows);
-      return updateRes;
+      logger.log.info(`Data: ${JSON.stringify(parsedRows)}`);
+
+      const requestId = await fastify.services.uploadProduct.execute(
+        parsedRows
+      );
+      return { requestId };
+    },
+  });
+
+  fastify.withTypeProvider<ZodTypeProvider>().route({
+    method: "GET",
+    url: "/get-status/:requestId",
+    schema: {
+      params: z.object({
+        requestId: z.string(),
+      }),
+      response: {
+        200: z.object({
+          status: ZStatus,
+        }),
+      },
+    },
+    ...AuthCommon.RouteOptions,
+    handler: async function (request, reply) {
+      const { requestId } = request.params;
+      const status = await fastify.services.getStatus.execute(requestId);
+      return { status };
     },
   });
 };
