@@ -4,6 +4,7 @@ import { ZStatus } from "@app/models/product";
 import { redisConnection } from "./redis";
 import axios from "axios";
 import sharp from "sharp";
+import { uploadFile } from "@infra/s3";
 
 const imageWorker = new Worker(
   "image-processing",
@@ -22,12 +23,8 @@ const imageWorker = new Worker(
         .jpeg({ quality: 50 })
         .toBuffer();
 
-      // Abstracted image upload (To be implemented)
-      //   const outputUrl = await uploadToStorage(inputUrl);
-      await new Promise((resolve) => setTimeout(resolve, 5000));
-      console.log(`Image processed: ${imageId}`);
-
-      const outputUrl = inputUrl + "-processed";
+      // const outputUrl = await uploadFile({file: compressedBuffer, mimeType: 'jpeg', fileName: `/${requestId}/${imageId}/compressed`});
+      const outputUrl = `https://example.com/${requestId}/${imageId}/compressed`;
 
       await prisma.image.update({
         where: { id: imageId },

@@ -12,6 +12,7 @@
   "author": "ram singh",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.758.0",
     "@bull-board/fastify": "^6.7.10",
     "@fastify/autoload": "^6.1.0",
     "@fastify/cors": "^10.0.2",

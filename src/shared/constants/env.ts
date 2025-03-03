@@ -9,7 +9,13 @@ export const appEnv = z
         APP_PORT: z.string().transform((x) => parseInt(x)),
         APP_ENV: z.enum(['development', 'staging', 'production']).default('development'),
         DATABASE_URL: z.string().url().optional(),
+        //REDIS
         REDIS_HOST: z.string(),
-        REDIS_PORT: z.string().transform((x) => parseInt(x))
+        REDIS_PORT: z.string().transform((x) => parseInt(x)),
+        // AWS
+        AWS_REGION: z.string(),
+        AWS_ACCESS_KEY_ID: z.string(),
+        AWS_SECRET_ACCESS_KEY: z.string(),
+        AWS_S3_BUCKET_NAME: z.string(),
     })
     .parse(process.env);
