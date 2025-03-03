@@ -19,6 +19,10 @@ class BaseRepository<T extends { id?: string }> {
     return await this.prismaModel.create({ data: entity });
   };
 
+  createMany = async (entities: Array<Omit<T, "id"> & { id?: string }>): Promise<T[]> => {
+    return await this.prismaModel.createMany({ data: entities });
+  };
+
   updateByID = async (
     id: string,
     entity: Partial<Omit<T, "id">>

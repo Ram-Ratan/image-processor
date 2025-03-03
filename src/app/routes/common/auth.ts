@@ -1,5 +1,4 @@
 import { FastifyInstance, RouteShorthandOptions } from 'fastify';
-import { z } from 'zod';
 
 export namespace AuthCommon {
     export const RouteOptions: (

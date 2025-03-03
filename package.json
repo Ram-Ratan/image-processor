@@ -19,6 +19,7 @@
     "@fastify/request-context": "^6.0.2",
     "@prisma/client": "^6.4.1",
     "axios": "^1.7.9",
+    "csv-parse": "^5.6.0",
     "dotenv": "^16.4.7",
     "fastify": "^5.2.1",
     "fastify-plugin": "^5.0.1",
@@ -27,6 +28,7 @@
     "pino-pretty": "^13.0.0",
     "prisma": "^6.4.1",
     "tsconfig-paths": "^4.2.0",
+    "uuid": "^11.1.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {

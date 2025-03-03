@@ -1,4 +1,4 @@
-# User Service
+# Image Processor
 
 ## Folder Structure
 
