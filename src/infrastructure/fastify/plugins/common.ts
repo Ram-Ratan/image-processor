@@ -7,6 +7,7 @@ import {
   validatorCompiler,
 } from "fastify-type-provider-zod";
 import fastifyMultipart from "@fastify/multipart";
+import fastifySensible from "@fastify/sensible";
 
 export default fp(async (app: FastifyInstance) => {
   app.setValidatorCompiler(validatorCompiler);
@@ -16,4 +17,5 @@ export default fp(async (app: FastifyInstance) => {
   });
   app.register(cors);
   app.register(helmet);
+  app.register(fastifySensible);
 });
