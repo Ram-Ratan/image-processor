@@ -3,6 +3,7 @@ import ImageRepository from "@app/repository/ImageRepository";
 import ProcessRequestRepository from "@app/repository/ProcessRequestRepository";
 import ProductRepositoty from "@app/repository/ProductRepository";
 import prisma from "@infra/prisma";
+import { imageQueue } from "@infra/queue/imageQueue";
 import { v4 } from "uuid";
 
 class UploadProductService {
@@ -47,7 +48,7 @@ class UploadProductService {
 
           await Promise.all(
             row.inputImageUrls.map(async (url, index) => {
-              return await this.imageRepo.create(
+              const image = await this.imageRepo.create(
                 {
                   inputUrl: url,
                   status: ZStatus.Enum.PENDING,
@@ -58,6 +59,11 @@ class UploadProductService {
                 },
                 tx
               );
+              await imageQueue.add("image-processing", {
+                imageId: image.id,
+                inputUrl: image.inputUrl,
+                requestId: requestId,
+              });
             })
           );
         })
