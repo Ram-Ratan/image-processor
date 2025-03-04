@@ -1,0 +1,297 @@
+<svg version="1.1" baseProfile="full" width="2228.0" height="386.0" viewBox="0 0 2228 386" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
+<desc >#.interface: fill=lightblue
+#.enumeration: fill=lightgreen
+#.type: fill=lightgray
+
+[BaseRepository&lt;T&gt;|\#prismaModel: any;\#prisma: PrismaClient&lt;PrismaClientOptions, never, DefaultArgs&gt;;\#modelName: keyof PrismaClient&lt;PrismaClientOptions, never, DefaultArgs&gt;;+create: (entity: Omit&lt;T, &quot;id&quot;&gt; &amp; { id?: string; }, tx?: TransactionClient) =&gt; Promise&lt;T&gt;;+createMany: (entities: (Omit&lt;T, &quot;id&quot;&gt; &amp; { id?: string; })\[\], tx?: TransactionClient) =&gt; Promise&lt;T\[\]&gt;;+updateByID: (id: string, entity: Partial&lt;Omit&lt;T, &quot;id&quot;&gt;&gt;, tx?: TransactionClient) =&gt; Promise&lt;T&gt;;+deleteByID: (id: string, tx?: TransactionClient) =&gt; Promise&lt;any&gt;|-getModel(): any;+getById(): Promise&lt;T&gt;]
+[ImageRepository||]
+[BaseRepository&lt;T&gt;]&lt;:-[ImageRepository]
+[ProcessRequestRepository||]
+[BaseRepository&lt;T&gt;]&lt;:-[ProcessRequestRepository]
+[ProductRepository||]
+[BaseRepository&lt;T&gt;]&lt;:-[ProductRepository]
+[App|+app: any|-setupPlugins(): void;-setupRoutes(): void;-setUpErrorHandlers(): void;+start(): Promise&lt;void&gt;]
+[AppError|+statusCode: number;+error: string;+data?: any|]
+[NotFoundError||]
+[AppError]&lt;:-[NotFoundError]
+[ValidationError||]
+[AppError]&lt;:-[ValidationError]
+[GetStatusService|\#processRequestRepo: ProcessRequestRepository|+execute(): Promise&lt;TStatus&gt;]
+[UploadProductService|\#productRepo: ProductRepositoty;\#imageRepo: ImageRepository;\#processRequestRepo: ProcessRequestRepository|+execute(): Promise&lt;string&gt;]</desc>
+<g stroke-width="1.0" text-align="left" font="12pt Helvetica, Arial, sans-serif" font-size="12pt" font-family="Helvetica" font-weight="normal" font-style="normal">
+<g font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round" stroke="#33322E">
+<g stroke="transparent" fill="transparent">
+<rect x="0.0" y="0.0" height="386.0" width="2228.0" stroke="none"></rect>
+</g>
+<g transform="translate(8, 8)" fill="#33322E">
+<g transform="translate(20, 20)" fill="#eee8d5" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal">
+<path d="M267.2 252.3 L259.25 262 L259.25 282 L259.3 282.0 " fill="none"></path>
+<path d="M271.3 255.7 L267.2 252.3 L263.0 248.9 L275.6 242.0 Z"></path>
+<path d="M481.8 252.3 L489.75 262 L489.75 282 L489.8 282.0 " fill="none"></path>
+<path d="M486.0 248.9 L481.8 252.3 L477.7 255.7 L473.4 242.0 Z"></path>
+<path d="M743.3 246.3 L789.5 262 L789.5 282 L789.5 282.0 " fill="none"></path>
+<path d="M745.0 241.2 L743.3 246.3 L741.5 251.3 L730.6 242.0 Z"></path>
+<path d="M1078.1 181.8 L976.5 262 L976.5 282 L976.5 282.0 " fill="none"></path>
+<path d="M1081.4 185.9 L1078.1 181.8 L1074.8 177.6 L1088.5 173.5 Z"></path>
+<path d="M1194.1 184.9 L1241.25 262 L1241.25 282 L1241.3 282.0 " fill="none"></path>
+<path d="M1198.6 182.1 L1194.1 184.9 L1189.5 187.7 L1187.1 173.5 Z"></path>
+<g data-name="BaseRepository&lt;T&gt;">
+<g fill="#eee8d5" stroke="#33322E" data-name="BaseRepository&lt;T&gt;">
+<rect x="0.0" y="0.0" height="242.0" width="749.0" data-name="BaseRepository&lt;T&gt;"></rect>
+<path d="M0.0 32.0 L749.0 32.0" fill="none" data-name="BaseRepository&lt;T&gt;"></path>
+<path d="M0.0 194.0 L749.0 194.0" fill="none" data-name="BaseRepository&lt;T&gt;"></path>
+</g>
+<g transform="translate(0, 0)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="BaseRepository&lt;T&gt;" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="BaseRepository&lt;T&gt;" data-compartment="0">
+<a id="src/app/repository/BaseRepository.ts.BaseRepository&lt;T&gt;" xlink:href="src/app/repository/BaseRepository.ts"><text x="366.5" y="14.1" stroke="none" text-anchor="middle" data-name="BaseRepository&lt;T&gt;" data-compartment="0">BaseRepository&lt;T&gt;</text></a>
+
+</g>
+</g>
+<g transform="translate(0, 32)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="BaseRepository&lt;T&gt;" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="BaseRepository&lt;T&gt;" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="BaseRepository&lt;T&gt;" data-compartment="1">#prismaModel: any</text>
+<text x="0.0" y="30.3" stroke="none" data-name="BaseRepository&lt;T&gt;" data-compartment="1">#prisma: PrismaClient&lt;PrismaClientOptions, never, DefaultArgs&gt;</text>
+<text x="0.0" y="46.5" stroke="none" data-name="BaseRepository&lt;T&gt;" data-compartment="1">#modelName: keyof PrismaClient&lt;PrismaClientOptions, never, DefaultArgs&gt;</text>
+<text x="0.0" y="62.7" stroke="none" data-name="BaseRepository&lt;T&gt;" data-compartment="1">+create: (entity: Omit&lt;T, &quot;id&quot;&gt; &amp; { id?: string</text>
+<text x="0.0" y="78.9" stroke="none" data-name="BaseRepository&lt;T&gt;" data-compartment="1">}, tx?: TransactionClient) =&gt; Promise&lt;T&gt;</text>
+<text x="0.0" y="95.1" stroke="none" data-name="BaseRepository&lt;T&gt;" data-compartment="1">+createMany: (entities: (Omit&lt;T, &quot;id&quot;&gt; &amp; { id?: string</text>
+<text x="0.0" y="111.3" stroke="none" data-name="BaseRepository&lt;T&gt;" data-compartment="1">})[], tx?: TransactionClient) =&gt; Promise&lt;T[]&gt;</text>
+<text x="0.0" y="127.5" stroke="none" data-name="BaseRepository&lt;T&gt;" data-compartment="1">+updateByID: (id: string, entity: Partial&lt;Omit&lt;T, &quot;id&quot;&gt;&gt;, tx?: TransactionClient) =&gt; Promise&lt;T&gt;</text>
+<text x="0.0" y="143.7" stroke="none" data-name="BaseRepository&lt;T&gt;" data-compartment="1">+deleteByID: (id: string, tx?: TransactionClient) =&gt; Promise&lt;any&gt;</text>
+
+</g>
+</g>
+<g transform="translate(0, 194)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="BaseRepository&lt;T&gt;" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="BaseRepository&lt;T&gt;" data-compartment="2">
+<text x="0.0" y="14.1" stroke="none" data-name="BaseRepository&lt;T&gt;" data-compartment="2">-getModel(): any</text>
+<text x="0.0" y="30.3" stroke="none" data-name="BaseRepository&lt;T&gt;" data-compartment="2">+getById(): Promise&lt;T&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="ImageRepository">
+<g fill="#eee8d5" stroke="#33322E" data-name="ImageRepository">
+<rect x="184.3" y="282.0" height="48.0" width="150.0" data-name="ImageRepository"></rect>
+<path d="M184.3 314.0 L334.3 314.0" fill="none" data-name="ImageRepository"></path>
+<path d="M184.3 322.0 L334.3 322.0" fill="none" data-name="ImageRepository"></path>
+</g>
+<g transform="translate(184.25, 282)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ImageRepository" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ImageRepository" data-compartment="0">
+<a id="src/app/repository/ImageRepository.ts.ImageRepository" xlink:href="src/app/repository/ImageRepository.ts"><text x="67.0" y="14.1" stroke="none" text-anchor="middle" data-name="ImageRepository" data-compartment="0">ImageRepository</text></a>
+
+</g>
+</g>
+<g transform="translate(184.25, 314)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ImageRepository" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" data-name="ImageRepository" data-compartment="1">
+
+</g>
+</g>
+<g transform="translate(184.25, 322)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ImageRepository" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" data-name="ImageRepository" data-compartment="2">
+
+</g>
+</g>
+</g>
+<g data-name="ProcessRequestRepository">
+<g fill="#eee8d5" stroke="#33322E" data-name="ProcessRequestRepository">
+<rect x="374.3" y="282.0" height="48.0" width="231.0" data-name="ProcessRequestRepository"></rect>
+<path d="M374.3 314.0 L605.3 314.0" fill="none" data-name="ProcessRequestRepository"></path>
+<path d="M374.3 322.0 L605.3 322.0" fill="none" data-name="ProcessRequestRepository"></path>
+</g>
+<g transform="translate(374.25, 282)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ProcessRequestRepository" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ProcessRequestRepository" data-compartment="0">
+<a id="src/app/repository/ProcessRequestRepository.ts.ProcessRequestRepository" xlink:href="src/app/repository/ProcessRequestRepository.ts"><text x="107.5" y="14.1" stroke="none" text-anchor="middle" data-name="ProcessRequestRepository" data-compartment="0">ProcessRequestRepository</text></a>
+
+</g>
+</g>
+<g transform="translate(374.25, 314)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProcessRequestRepository" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" data-name="ProcessRequestRepository" data-compartment="1">
+
+</g>
+</g>
+<g transform="translate(374.25, 322)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProcessRequestRepository" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" data-name="ProcessRequestRepository" data-compartment="2">
+
+</g>
+</g>
+</g>
+<g data-name="ProductRepository">
+<g fill="#eee8d5" stroke="#33322E" data-name="ProductRepository">
+<rect x="708.5" y="282.0" height="48.0" width="162.0" data-name="ProductRepository"></rect>
+<path d="M708.5 314.0 L870.5 314.0" fill="none" data-name="ProductRepository"></path>
+<path d="M708.5 322.0 L870.5 322.0" fill="none" data-name="ProductRepository"></path>
+</g>
+<g transform="translate(708.5, 282)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ProductRepository" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ProductRepository" data-compartment="0">
+<a id="src/app/repository/ProductRepository.ts.ProductRepository" xlink:href="src/app/repository/ProductRepository.ts"><text x="73.0" y="14.1" stroke="none" text-anchor="middle" data-name="ProductRepository" data-compartment="0">ProductRepository</text></a>
+
+</g>
+</g>
+<g transform="translate(708.5, 314)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductRepository" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" data-name="ProductRepository" data-compartment="1">
+
+</g>
+</g>
+<g transform="translate(708.5, 322)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductRepository" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" data-name="ProductRepository" data-compartment="2">
+
+</g>
+</g>
+</g>
+<g data-name="App">
+<g fill="#eee8d5" stroke="#33322E" data-name="App">
+<rect x="789.0" y="48.5" height="145.0" width="233.0" data-name="App"></rect>
+<path d="M789.0 80.5 L1022.0 80.5" fill="none" data-name="App"></path>
+<path d="M789.0 112.5 L1022.0 112.5" fill="none" data-name="App"></path>
+</g>
+<g transform="translate(789, 48.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="App" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="App" data-compartment="0">
+<a id="src/infrastructure/fastify/index.ts.App" xlink:href="src/infrastructure/fastify/index.ts"><text x="108.5" y="14.1" stroke="none" text-anchor="middle" data-name="App" data-compartment="0">App</text></a>
+
+</g>
+</g>
+<g transform="translate(789, 80.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="App" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="App" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="App" data-compartment="1">+app: any</text>
+
+</g>
+</g>
+<g transform="translate(789, 112.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="App" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="App" data-compartment="2">
+<text x="0.0" y="14.1" stroke="none" data-name="App" data-compartment="2">-setupPlugins(): void</text>
+<text x="0.0" y="30.3" stroke="none" data-name="App" data-compartment="2">-setupRoutes(): void</text>
+<text x="0.0" y="46.5" stroke="none" data-name="App" data-compartment="2">-setUpErrorHandlers(): void</text>
+<text x="0.0" y="62.7" stroke="none" data-name="App" data-compartment="2">+start(): Promise&lt;void&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="AppError">
+<g fill="#eee8d5" stroke="#33322E" data-name="AppError">
+<rect x="1062.0" y="68.5" height="105.0" width="186.0" data-name="AppError"></rect>
+<path d="M1062.0 100.5 L1248.0 100.5" fill="none" data-name="AppError"></path>
+<path d="M1062.0 165.5 L1248.0 165.5" fill="none" data-name="AppError"></path>
+</g>
+<g transform="translate(1062, 68.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AppError" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AppError" data-compartment="0">
+<a id="src/shared/error/AppError.ts.AppError" xlink:href="src/shared/error/AppError.ts"><text x="85.0" y="14.1" stroke="none" text-anchor="middle" data-name="AppError" data-compartment="0">AppError</text></a>
+
+</g>
+</g>
+<g transform="translate(1062, 100.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AppError" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AppError" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="AppError" data-compartment="1">+statusCode: number</text>
+<text x="0.0" y="30.3" stroke="none" data-name="AppError" data-compartment="1">+error: string</text>
+<text x="0.0" y="46.5" stroke="none" data-name="AppError" data-compartment="1">+data?: any</text>
+
+</g>
+</g>
+<g transform="translate(1062, 165.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AppError" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" data-name="AppError" data-compartment="2">
+
+</g>
+</g>
+</g>
+<g data-name="NotFoundError">
+<g fill="#eee8d5" stroke="#33322E" data-name="NotFoundError">
+<rect x="910.5" y="282.0" height="48.0" width="132.0" data-name="NotFoundError"></rect>
+<path d="M910.5 314.0 L1042.5 314.0" fill="none" data-name="NotFoundError"></path>
+<path d="M910.5 322.0 L1042.5 322.0" fill="none" data-name="NotFoundError"></path>
+</g>
+<g transform="translate(910.5, 282)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="NotFoundError" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="NotFoundError" data-compartment="0">
+<a id="src/shared/error/NotFoundError.ts.NotFoundError" xlink:href="src/shared/error/NotFoundError.ts"><text x="58.0" y="14.1" stroke="none" text-anchor="middle" data-name="NotFoundError" data-compartment="0">NotFoundError</text></a>
+
+</g>
+</g>
+<g transform="translate(910.5, 314)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="NotFoundError" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" data-name="NotFoundError" data-compartment="1">
+
+</g>
+</g>
+<g transform="translate(910.5, 322)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="NotFoundError" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" data-name="NotFoundError" data-compartment="2">
+
+</g>
+</g>
+</g>
+<g data-name="ValidationError">
+<g fill="#eee8d5" stroke="#33322E" data-name="ValidationError">
+<rect x="1174.8" y="282.0" height="48.0" width="133.0" data-name="ValidationError"></rect>
+<path d="M1174.8 314.0 L1307.8 314.0" fill="none" data-name="ValidationError"></path>
+<path d="M1174.8 322.0 L1307.8 322.0" fill="none" data-name="ValidationError"></path>
+</g>
+<g transform="translate(1174.75, 282)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ValidationError" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ValidationError" data-compartment="0">
+<a id="src/shared/error/ValidationError.ts.ValidationError" xlink:href="src/shared/error/ValidationError.ts"><text x="58.5" y="14.1" stroke="none" text-anchor="middle" data-name="ValidationError" data-compartment="0">ValidationError</text></a>
+
+</g>
+</g>
+<g transform="translate(1174.75, 314)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ValidationError" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" data-name="ValidationError" data-compartment="1">
+
+</g>
+</g>
+<g transform="translate(1174.75, 322)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ValidationError" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" data-name="ValidationError" data-compartment="2">
+
+</g>
+</g>
+</g>
+<g data-name="GetStatusService">
+<g fill="#eee8d5" stroke="#33322E" data-name="GetStatusService">
+<rect x="1288.0" y="73.0" height="96.0" width="422.0" data-name="GetStatusService"></rect>
+<path d="M1288.0 105.0 L1710.0 105.0" fill="none" data-name="GetStatusService"></path>
+<path d="M1288.0 137.0 L1710.0 137.0" fill="none" data-name="GetStatusService"></path>
+</g>
+<g transform="translate(1288, 73)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="GetStatusService" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="GetStatusService" data-compartment="0">
+<a id="src/app/services/product/GetStatusService.ts.GetStatusService" xlink:href="src/app/services/product/GetStatusService.ts"><text x="203.0" y="14.1" stroke="none" text-anchor="middle" data-name="GetStatusService" data-compartment="0">GetStatusService</text></a>
+
+</g>
+</g>
+<g transform="translate(1288, 105)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="GetStatusService" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="GetStatusService" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="GetStatusService" data-compartment="1">#processRequestRepo: ProcessRequestRepository</text>
+
+</g>
+</g>
+<g transform="translate(1288, 137)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="GetStatusService" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="GetStatusService" data-compartment="2">
+<text x="0.0" y="14.1" stroke="none" data-name="GetStatusService" data-compartment="2">+execute(): Promise&lt;TStatus&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="UploadProductService">
+<g fill="#eee8d5" stroke="#33322E" data-name="UploadProductService">
+<rect x="1750.0" y="56.5" height="129.0" width="422.0" data-name="UploadProductService"></rect>
+<path d="M1750.0 88.5 L2172.0 88.5" fill="none" data-name="UploadProductService"></path>
+<path d="M1750.0 153.5 L2172.0 153.5" fill="none" data-name="UploadProductService"></path>
+</g>
+<g transform="translate(1750, 56.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="UploadProductService" data-compartment="0">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="UploadProductService" data-compartment="0">
+<a id="src/app/services/product/UploadProductService.ts.UploadProductService" xlink:href="src/app/services/product/UploadProductService.ts"><text x="203.0" y="14.1" stroke="none" text-anchor="middle" data-name="UploadProductService" data-compartment="0">UploadProductService</text></a>
+
+</g>
+</g>
+<g transform="translate(1750, 88.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="UploadProductService" data-compartment="1">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="UploadProductService" data-compartment="1">
+<text x="0.0" y="14.1" stroke="none" data-name="UploadProductService" data-compartment="1">#productRepo: ProductRepositoty</text>
+<text x="0.0" y="30.3" stroke="none" data-name="UploadProductService" data-compartment="1">#imageRepo: ImageRepository</text>
+<text x="0.0" y="46.5" stroke="none" data-name="UploadProductService" data-compartment="1">#processRequestRepo: ProcessRequestRepository</text>
+
+</g>
+</g>
+<g transform="translate(1750, 153.5)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="UploadProductService" data-compartment="2">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="UploadProductService" data-compartment="2">
+<text x="0.0" y="14.1" stroke="none" data-name="UploadProductService" data-compartment="2">+execute(): Promise&lt;string&gt;</text>
+
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>
