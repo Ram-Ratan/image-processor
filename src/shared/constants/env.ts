@@ -8,6 +8,7 @@ export const appEnv = z
         APP_NAME: z.string(),
         APP_PORT: z.string().transform((x) => parseInt(x)),
         APP_ENV: z.enum(['development', 'staging', 'production']).default('development'),
+        APP_HOST: z.string(),
         DATABASE_URL: z.string().url().optional(),
         //REDIS
         REDIS_HOST: z.string(),

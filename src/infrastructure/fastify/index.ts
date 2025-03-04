@@ -35,7 +35,7 @@ export class App {
 
   public async start() {
     try {
-      await this.app.listen({ port: appEnv.APP_PORT });
+      await this.app.listen({ port: appEnv.APP_PORT, host: appEnv.APP_HOST });
       logger.log.info(
         `🚀 Server running on http://localhost:${appEnv.APP_PORT}`
       );
